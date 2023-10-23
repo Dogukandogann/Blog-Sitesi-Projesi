@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,16 +11,22 @@ namespace BlogProjesi.Controllers
     public class CommentController : Controller
     {
         // GET: Comment
-        public ActionResult Index()
+        CommentManager cm = new CommentManager();
+        public PartialViewResult CommentList(int id)
         {
-            return View();
+            var commentList = cm.CommentByBlog(id);
+            return PartialView(commentList);
         }
-        public PartialViewResult CommentList()
+        
+        public PartialViewResult LeaveComment(int id)
         {
+            ViewBag.CommentId = id;
             return PartialView();
         }
-        public PartialViewResult LeaveComment()
+        [HttpPost]
+        public PartialViewResult LeaveComment(Comment c)
         {
+            cm.CommentAdd(c);
             return PartialView();
         }
     }

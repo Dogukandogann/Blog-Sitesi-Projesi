@@ -53,6 +53,12 @@
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,6 +140,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailSubscribeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -156,6 +163,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -188,7 +196,9 @@
     <Content Include="miniblog\fonts\icomoon\style.css" />
     <Content Include="miniblog\images\Bb.jpg" />
     <Content Include="miniblog\images\cebupacific-booking.jpg" />
+    <Content Include="miniblog\images\Gpt.jpg" />
     <Content Include="miniblog\images\hero_1.jpg" />
+    <Content Include="miniblog\images\Icardi.jpg" />
     <Content Include="miniblog\images\img_1.jpg" />
     <Content Include="miniblog\images\img_2.jpg" />
     <Content Include="miniblog\images\img_3.jpg" />
@@ -197,13 +207,17 @@
     <Content Include="miniblog\images\img_v_2.jpg" />
     <Content Include="miniblog\images\Kamp.jpg" />
     <Content Include="miniblog\images\ol.jpg" />
+    <Content Include="miniblog\images\OnePiece.jpg" />
     <Content Include="miniblog\images\Paris.jpg" />
     <Content Include="miniblog\images\person_1.jpg" />
     <Content Include="miniblog\images\person_2.jpg" />
     <Content Include="miniblog\images\person_3.jpg" />
     <Content Include="miniblog\images\person_4.jpg" />
     <Content Include="miniblog\images\person_5.jpg" />
+    <Content Include="miniblog\images\Phone15.jpg" />
+    <Content Include="miniblog\images\Robot.jpg" />
     <Content Include="miniblog\images\Rome.jpg" />
+    <Content Include="miniblog\images\Teknoloji.jpg" />
     <Content Include="miniblog\index.html" />
     <Content Include="miniblog\js\aos.js" />
     <Content Include="miniblog\js\bootstrap-datepicker.min.js" />
@@ -361,7 +375,6 @@
     <Content Include="Views\Blog\BlogList.cshtml" />
     <Content Include="Views\Blog\FeaturedPost.cshtml" />
     <Content Include="Views\Blog\OtherFeaturedPost.cshtml" />
-    <Content Include="Views\Blog\MailSubscribe.cshtml" />
     <Content Include="Views\About\Footer.cshtml" />
     <Content Include="Views\Blog\BlogDetails.cshtml" />
     <Content Include="Views\Blog\BlogCover.cshtml" />
@@ -375,6 +388,7 @@
     <Content Include="Views\About\MeetTheTeam.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Blog\BlogByCategory.cshtml" />
+    <Content Include="Views\MailSubscribe\AddMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
