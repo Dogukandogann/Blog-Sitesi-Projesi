@@ -1,4 +1,5 @@
 ﻿
+@model IEnumerable<EntityLayer.Concrete.About>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -9,8 +10,8 @@
         <div class="row same-height justify-content-center">
             <div class="col-md-12 col-lg-10">
                 <div class="post-entry text-center">
-                    <h1 class="">About Us</h1>
-                    <p class="lead mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, adipisci?</p>
+                    <h1 class="">Hakkımızda</h1>
+                    <p class="lead mb-4 text-white">Sizler için yüzlerce blog yazan yazarlarımızı ve ekibimizi daha yakından tanımak ister misiniz ?</p>
                 </div>
             </div>
         </div>
@@ -19,18 +20,25 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 order-md-2">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="col-md-5 mr-auto order-md-1">
-                <h2>We Love To Explore</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit corrupti vitae cupiditate explicabo, soluta quibusdam necessitatibus, provident reprehenderit, dolorem saepe non eligendi possimus autem repellendus nesciunt, est deleniti libero recusandae officiis. Voluptatibus quisquam voluptatum expedita recusandae architecto quibusdam.</p>
-                <ul class="ul-check list-unstyled success">
-                    <li>Onsectetur adipisicing elit</li>
-                    <li>Dolorem saepe non eligendi possimus</li>
-                    <li>Voluptate odit corrupti vitae</li>
-                </ul>
-            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 order-md-2">
+                    <img src="@item.AboutImage1" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-5 mr-auto order-md-1">
+                    <h2>Biz Kimiz</h2>
+
+                    <p>@item.AboutContent1</p>
+
+                    <ul class="ul-check list-unstyled success">
+                        <li>Hergün 10 Yeni Blog Yazısı</li>
+                        <li>21 Farklı Dinamik Yazar</li>
+                        <li>Günlük 45.000 Tekil Okunma</li>
+                        <li>27 Farklı Ülkeden Takipçi</li>
+                        <li>Sosyal Medya Hesaplarımızda 325.000 Abone</li>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 </div>
@@ -39,23 +47,27 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <img src="/miniblog/images/img_1.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="col-md-5 ml-auto">
-                <h2>Learn From Us</h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit corrupti vitae cupiditate explicabo, soluta quibusdam necessitatibus, provident reprehenderit, dolorem saepe non eligendi possimus autem repellendus nesciunt, est deleniti libero recusandae officiis. Voluptatibus quisquam voluptatum expedita recusandae architecto quibusdam.</p>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <img src="@item.AboutImage2" alt="Image" class="img-fluid">
+                </div>
 
-                <ul class="ul-check list-unstyled success">
-                    <li>Onsectetur adipisicing elit</li>
-                    <li>Dolorem saepe non eligendi possimus</li>
-                    <li>Voluptate odit corrupti vitae</li>
-                </ul>
-            </div>
+                <div class="col-md-5 ml-auto">
+                    <h2>Neler Yapıyoruz</h2>
+                    <p class="mb-4">@item.AboutContent2</p>
+
+                    <ul class="ul-check list-unstyled success">
+                        <li>Film ve Dizi İncelemeleri</li>
+                        <li>Seyahat Rehberleri</li>
+                        <li>Programlama Dilleri Hakkında İçerikler</li>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 </div>
 
-@Html.Action("MailSubscribe", "Blog")
+@*@Html.Action("MailSubscribe", "Blog")*@
 @Html.Action("Footer", "About")
 

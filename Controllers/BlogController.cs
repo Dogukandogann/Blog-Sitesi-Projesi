@@ -91,9 +91,14 @@ namespace BlogProjesi.Controllers
             return PartialView(BlogDetailsList);
         }
 
-        public ActionResult BlogByCategory()
+        public ActionResult BlogByCategory(int id)
         {
-            return View();
+            var blotListByCaregory = bm.GetBlogByCategory(id);
+            var categoryName = blotListByCaregory.Select(x=>x.Category.Name).FirstOrDefault();
+            ViewBag.CategoryName= categoryName;
+            var categoryDesc = blotListByCaregory.Select(x => x.Category.CategoryDescription).FirstOrDefault();
+            ViewBag.categoryDesc = categoryDesc;
+            return View(blotListByCaregory);
         }
 
     }

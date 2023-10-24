@@ -12,7 +12,8 @@ namespace BlogProjesi.Controllers
         AboutManager abm = new AboutManager();
         public ActionResult Index()
         {
-            return View();
+            var aboutcontent = abm.GetAll();
+            return View(aboutcontent);
         }
         public PartialViewResult Footer()
         {
@@ -21,7 +22,9 @@ namespace BlogProjesi.Controllers
         }
         public PartialViewResult MeetTheTeam()
         {
-            return PartialView();
+            AuthorManager authorManager = new AuthorManager();
+            var authorList= authorManager.GetAll();
+            return PartialView(authorList);
         }
 
     }

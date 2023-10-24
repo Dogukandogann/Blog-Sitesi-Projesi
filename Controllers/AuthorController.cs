@@ -16,9 +16,11 @@ namespace BlogProjesi.Controllers
             var authorDetail = blogManager.GetBlogByID(id);
             return PartialView(authorDetail);
         }
-        public PartialViewResult AuthorPopulerPost()
+        public PartialViewResult AuthorPopulerPost(int id)
         {
-            return PartialView();
+            var blogAuthorId = blogManager.GetAll().Where(x=>x.BlogId==id).Select(y=>y.AuthorId).FirstOrDefault();
+            var authorBlogs = blogManager.GetBlogByAuthor(blogAuthorId).Where(x => x.BlogId != id);
+            return PartialView(authorBlogs);
         }
     }
 }

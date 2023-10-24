@@ -17,7 +17,8 @@ namespace BlogProjesi.Controllers
         }
         public PartialViewResult BlogDetailCategoryList()
         {
-            return PartialView();
+            var categoryValues = cm.GetAll();
+            return PartialView(categoryValues);
         }
     }
 }
