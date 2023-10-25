@@ -1,10 +1,13 @@
 ﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
+using DataAccessLayer.Concrete;
 
 namespace BlogProjesi.Controllers
 {
@@ -99,6 +102,36 @@ namespace BlogProjesi.Controllers
             var categoryDesc = blotListByCaregory.Select(x => x.Category.CategoryDescription).FirstOrDefault();
             ViewBag.categoryDesc = categoryDesc;
             return View(blotListByCaregory);
+        }
+        public ActionResult AdminBlogList()
+        {
+            var bloglist = bm.GetAll();
+            return View(bloglist);
+        }
+        public ActionResult AddNewBlog()
+        {
+            DataAccessLayer.Concrete.Context c = new DataAccessLayer.Concrete.Context();
+            List<SelectListItem> values = (from x in c.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.values= values;
+            List<SelectListItem> authors = (from x in c.Authors.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text=x.AuthorName, 
+                                                Value = x.AuthorId.ToString()
+                                            }).ToList();
+            ViewBag.authors= authors;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddNewBlog(Blog b)
+        {
+            bm.BlogAddBl(b);
+            return RedirectToAction("AdminBlogList");
         }
 
     }
