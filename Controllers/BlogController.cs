@@ -133,6 +133,45 @@ namespace BlogProjesi.Controllers
             bm.BlogAddBl(b);
             return RedirectToAction("AdminBlogList");
         }
+        public ActionResult DeleteBlog(int id)
+        {
+            bm.DeleteBlog(id);
+            return RedirectToAction("AdminBlogList");
+        }
+        public ActionResult UpdateBlog(int id)
+        {
+
+            DataAccessLayer.Concrete.Context c = new DataAccessLayer.Concrete.Context();
+            List<SelectListItem> values = (from x in c.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.values = values;
+            List<SelectListItem> authors = (from x in c.Authors.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.AuthorName,
+                                                Value = x.AuthorId.ToString()
+                                            }).ToList();
+            ViewBag.authors = authors;
+            Blog blog = bm.FindBlog(id);
+            return View(blog);
+        }
+        [HttpPost]
+        public ActionResult UpdateBlog(Blog p)
+        {
+            bm.UpdateBlog(p);
+            return RedirectToAction("AdminBlogList");
+
+        }
+        public ActionResult GetCommentByBlog(int id)
+        {
+            CommentManager cm = new CommentManager();
+            var commentList = cm.CommentByBlog(id);
+            return PartialView(commentList);
+        }
 
     }
 }
