@@ -10,6 +10,7 @@ namespace BlogProjesi.Controllers
     public class AuthorController : Controller
     {
         BlogManager blogManager = new BlogManager();
+        AuthorManager authorManager = new AuthorManager();
 
         public PartialViewResult AuthorAbout(int id) 
         {
@@ -21,6 +22,12 @@ namespace BlogProjesi.Controllers
             var blogAuthorId = blogManager.GetAll().Where(x=>x.BlogId==id).Select(y=>y.AuthorId).FirstOrDefault();
             var authorBlogs = blogManager.GetBlogByAuthor(blogAuthorId).Where(x => x.BlogId != id);
             return PartialView(authorBlogs);
+        }
+
+        public ActionResult AuthorList()
+        {
+            var authorlists = authorManager.GetAll();
+            return View(authorlists);
         }
     }
 }
