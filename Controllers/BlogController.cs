@@ -172,6 +172,11 @@ namespace BlogProjesi.Controllers
             var commentList = cm.CommentByBlog(id);
             return PartialView(commentList);
         }
+        public ActionResult AdminBlogList2()
+        {
+            var bloglist = bm.GetAll();
+            return View(bloglist);
+        }
 
     }
 }

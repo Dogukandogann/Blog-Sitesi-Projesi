@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,18 @@ namespace BlogProjesi.Controllers
             AuthorManager authorManager = new AuthorManager();
             var authorList= authorManager.GetAll();
             return PartialView(authorList);
+        }
+
+        public ActionResult UpdateAboutList()
+        {
+            var aboutList = abm.GetAll();
+            return View(aboutList);
+        }
+        [HttpPost]
+        public ActionResult UpdateAbout(About p)
+        {
+           abm.UpdateAboutBm(p);
+            return RedirectToAction("UpdateAboutList");
         }
 
     }

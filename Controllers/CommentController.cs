@@ -49,5 +49,6 @@ namespace BlogProjesi.Controllers
             cm.CommentStatusChangeToTrue(id);
             return RedirectToAction("AdminCommentListFalse");
         }
+
     }
 }
