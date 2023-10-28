@@ -29,5 +29,25 @@ namespace BlogProjesi.Controllers
             cm.CommentAdd(c);
             return PartialView();
         }
+        public ActionResult AdminCommentListTrue()
+        {
+            var commentList = cm.CommentByStatusTrue();
+            return View(commentList);
+        }
+        public ActionResult AdminCommentListFalse()
+        {
+            var commentList = cm.CommentByStatusFalse();
+            return View(commentList);
+        }
+        public ActionResult StatusChangeToFalse(int id)
+        {
+            cm.CommentStatusChangeToFalse(id);
+            return RedirectToAction("AdminCommentListTrue");
+        }
+        public ActionResult StatusChangeToTrue(int id)
+        {
+            cm.CommentStatusChangeToTrue(id);
+            return RedirectToAction("AdminCommentListFalse");
+        }
     }
 }
