@@ -2524,6 +2524,8 @@
     <Content Include="Views\User\Partial1.cshtml" />
     <Content Include="Views\User\BlogList.cshtml" />
     <Content Include="Views\Blog\BlogList.cshtml" />
+    <Content Include="Views\User\UpdateBlog.cshtml" />
+    <Content Include="Views\User\AddNewBlog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@
 }
 @{
     string color = " ";
+    string caseName = "";
 }
 <!DOCTYPE html>
 <html>
@@ -48,18 +49,22 @@
                             if (item.BlogRating>=85)
                             {
                                 color = "post-category text-white bg-success mb-3";
+                                caseName = "Çok İyi";
                             }
                             else if (item.BlogRating >= 70 && item.BlogRating<=84)
                             {
                                 color = "post-category text-white bg-info mb-3";
+                                caseName = "Başarılı";
                             }
                             else if (item.BlogRating >= 50 && item.BlogRating <= 69)
                             {
                                 color = "post-category text-white bg-info mb-3";
+                                caseName = "Fena Değil";
                             }
                             else if (item.BlogRating >= 0 && item.BlogRating <= 49)
                             {
                                 color = "post-category text-white bg-danger mb-3";
+                                caseName = "Vasat";
                             }
 
 
@@ -76,10 +81,10 @@
                                     </small>
                                 </td>
                                 <td class="project-state">
-                                    <span class="badge @color">Success</span>
+                                    <span class="badge @color">@caseName</span>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="/User/UpdateBlog/@item.BlogId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
@@ -94,6 +99,7 @@
                         }
                     </tbody>
                 </table>
+                <a href="/User/AddNewBlog/" class="btn btn-success">Yeni Blog</a>
             </div>
         </div>
     </section>
