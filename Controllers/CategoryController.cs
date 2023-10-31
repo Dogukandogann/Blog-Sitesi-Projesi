@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,38 @@ namespace BlogProjesi.Controllers
         { 
             var categoryList=cm.GetAll();
             return View(categoryList);
+        }
+        public ActionResult AdminCategoryAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminCategoryAdd(Category p)
+        {
+            cm.CategoryAddBl(p);
+            return RedirectToAction("AdminCategoryList");
+        }
+        public ActionResult CategoryEdit(int id)
+        {
+            Category category = cm.FindCategory(id);
+            return View(category);
+        }
+
+        [HttpPost]
+        public ActionResult CategoryEdit(Category p)
+        {
+            cm.EditCategory(p);
+            return RedirectToAction("AdminCategoryList");
+        }
+        public ActionResult CategoryDelete(int id)
+        {
+            cm.DeleteCategory(id);
+            return RedirectToAction("AdminCategoryList");
+        }
+        public ActionResult CategoryStatusTrue(int id)
+        {
+            cm.ActiveCategory(id);
+            return RedirectToAction("AdminCategoryList");
         }
     }
 }

@@ -28,6 +28,7 @@ namespace BlogProjesi.Controllers
         [HttpPost]
         public PartialViewResult LeaveComment(Comment c)
         {
+            c.CommentStatus = true;
             cm.CommentAdd(c);
             return PartialView();
         }

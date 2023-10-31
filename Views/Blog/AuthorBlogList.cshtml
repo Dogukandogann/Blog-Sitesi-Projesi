@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "AuthorBlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    string color = " ";
+    string caseName = "";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Bloglarım</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                Id
+                            </th>
+                            <th style="width: 20%">
+                                Blog Başlığı
+                            </th>
+                            <th style="width: 20%">
+                                Blog Puanı
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Durum
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.BlogRating >= 85)
+                            {
+                                color = "post-category text-white bg-success mb-3";
+                                caseName = "Çok İyi";
+                            }
+                            else if (item.BlogRating >= 70 && item.BlogRating <= 84)
+                            {
+                                color = "post-category text-white bg-info mb-3";
+                                caseName = "Başarılı";
+                            }
+                            else if (item.BlogRating >= 50 && item.BlogRating <= 69)
+                            {
+                                color = "post-category text-white bg-info mb-3";
+                                caseName = "Fena Değil";
+                            }
+                            else if (item.BlogRating >= 0 && item.BlogRating <= 49)
+                            {
+                                color = "post-category text-white bg-danger mb-3";
+                                caseName = "Vasat";
+                            }
+
+
+                            <tr>
+                                <td>@item.BlogId</td>
+                                <td>@item.BlogTitle</td>
+                                <td class="project_progress">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-volumenow="10" aria-volumemin="0" aria-volumemax="10" style="width:@item.BlogRating%">
+                                        </div>
+                                    </div>
+                                    <small>
+                                        Aldığı Puan:@item.BlogRating
+                                    </small>
+                                </td>
+                                <td class="project-state">
+                                    <span class="badge @color">@caseName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-info btn-sm" href="/Blog/UpdateBlog/@item.BlogId">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Blog/AddNewBlog/" class="btn btn-success">Yeni Blog Yaz</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+

@@ -195,6 +195,11 @@ namespace BlogProjesi.Controllers
             var bloglist = bm.GetAll();
             return View(bloglist);
         }
+        public ActionResult AuthorBlogList(int id)
+        {
+            var blogs = bm.GetBlogByAuthor(id);
+            return View(blogs);
+        }
 
     }
 }

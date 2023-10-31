@@ -2004,6 +2004,7 @@
     <Content Include="login-form-20\js\main.js" />
     <Content Include="login-form-20\js\popper.js" />
     <Content Include="login-form-20\main.html" />
+    <Content Include="miniblog\images\admin.jpg" />
     <Content Include="miniblog\images\men.jpg" />
     <Content Include="miniblog\images\Woman1.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -2649,6 +2650,8 @@
     <Content Include="Views\User\AddNewBlog.cshtml" />
     <Content Include="Views\Error\Page404.cshtml" />
     <Content Include="Views\Login\AdminLogin.cshtml" />
+    <Content Include="Views\Blog\AuthorBlogList.cshtml" />
+    <Content Include="Views\Category\CategoryEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
