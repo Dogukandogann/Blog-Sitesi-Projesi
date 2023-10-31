@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BlogProjesi.Controllers
 {
+    [AllowAnonymous]
     public class AboutController : Controller
     {
         AboutManager abm = new AboutManager();

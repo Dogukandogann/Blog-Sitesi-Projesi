@@ -12,14 +12,17 @@ namespace BlogProjesi.Controllers
     {
         // GET: Contact
         ContactManager cm = new ContactManager();
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
+        [AllowAnonymous]
         public ActionResult SendMessage()
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult SendMessage(Contact p)
         {

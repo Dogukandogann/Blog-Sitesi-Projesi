@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace BlogProjesi.Controllers
 {
+    [AllowAnonymous]
     public class ErrorController : Controller
     {
         // GET: Error

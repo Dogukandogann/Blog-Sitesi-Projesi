@@ -15,6 +15,7 @@ namespace BlogProjesi.Controllers
             var categoryValues = cm.GetAll();
             return View(categoryValues);
         }
+        [AllowAnonymous]
         public PartialViewResult BlogDetailCategoryList()
         {
             var categoryValues = cm.GetAll();

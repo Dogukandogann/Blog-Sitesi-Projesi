@@ -39,12 +39,14 @@ Author URL: http://w3layouts.com
                 <div class="main-hotair">
                     <div class="content-wthree">
                         <h2>Login Paneli</h2>
-                        @using (Html.BeginForm("AuthorLogin", "Login", FormMethod.Post)) {
+                        @using (Html.BeginForm("AuthorLogin", "Login", FormMethod.Post))
+                        {
                             <input type="text" class="text" name="Mail" placeholder="Mail Adresi" required="" autofocus>
                             <input type="password" class="password" name="Password" placeholder="Şifre" required="" autofocus>
                             <button class="btn" type="submit">Giriş Yap</button>
                         }
-                        <p class="account">Şifremi Unuttum   <a href="#signup">Şifre Gönder</a></p>
+                        <p class="account">Şifremi Unuttum   <a href="#signup"> Şifre Gönder</a></p>
+                        <p class="account">Admin Girişi   <a href="/Login/AdminLogin"> Giriş Sayfası</a></p>
                     </div>
                     <div class="w3l_form align-self">
                         <div class="left_grid_info">

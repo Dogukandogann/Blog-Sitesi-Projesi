@@ -12,12 +12,13 @@ namespace BlogProjesi.Controllers
     {
         BlogManager blogManager = new BlogManager();
         AuthorManager authorManager = new AuthorManager();
-
+        [AllowAnonymous]
         public PartialViewResult AuthorAbout(int id) 
         {
             var authorDetail = blogManager.GetBlogByID(id);
             return PartialView(authorDetail);
         }
+        [AllowAnonymous]
         public PartialViewResult AuthorPopulerPost(int id)
         {
             var blogAuthorId = blogManager.GetAll().Where(x=>x.BlogId==id).Select(y=>y.AuthorId).FirstOrDefault();
