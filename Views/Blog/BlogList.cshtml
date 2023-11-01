@@ -43,6 +43,7 @@
                             <figure class="author-figure mb-0 mr-3 float-left"><img src="@item.Author.AuthorImage" alt="Image" class="img-fluid"></figure>
                             <span class="d-inline-block mt-1">By <a href="#">@item.Author.AuthorName</a></span>
                             <span>&nbsp;-&nbsp; @(((DateTime)item.BlogDate).ToString("dd-MMM-yyyy"))</span>
+                            Puan:@item.BlogRating
                         </div>
                         @if (item.BlogContent.Length > 200)
                             {

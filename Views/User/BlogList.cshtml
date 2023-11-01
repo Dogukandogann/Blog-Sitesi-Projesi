@@ -6,6 +6,7 @@
 @{
     string color = " ";
     string caseName = "";
+    int puan = 1;
 }
 <!DOCTYPE html>
 <html>
@@ -46,22 +47,23 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.BlogRating>=85)
+                            puan = item.BlogRating * 10;
+                            if (puan>=90)
                             {
                                 color = "post-category text-white bg-success mb-3";
                                 caseName = "Çok İyi";
                             }
-                            else if (item.BlogRating >= 70 && item.BlogRating<=84)
+                            else if (puan >= 70 && item.BlogRating<=89)
                             {
                                 color = "post-category text-white bg-info mb-3";
                                 caseName = "Başarılı";
                             }
-                            else if (item.BlogRating >= 50 && item.BlogRating <= 69)
+                            else if (puan >= 50 && item.BlogRating <= 69)
                             {
                                 color = "post-category text-white bg-info mb-3";
                                 caseName = "Fena Değil";
                             }
-                            else if (item.BlogRating >= 0 && item.BlogRating <= 49)
+                            else if (puan >= 0 && item.BlogRating <= 49)
                             {
                                 color = "post-category text-white bg-danger mb-3";
                                 caseName = "Vasat";
@@ -73,11 +75,11 @@
                                 <td>@item.BlogTitle</td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-volumenow="10" aria-volumemin="0" aria-volumemax="10" style="width:@item.BlogRating%">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-volumenow="10" aria-volumemin="0" aria-volumemax="10" style="width:@puan%">
                                         </div>
                                     </div>
                                     <small>
-                                        Aldığı Puan:@item.BlogRating
+                                        Aldığı Puan:@puan
                                     </small>
                                 </td>
                                 <td class="project-state">

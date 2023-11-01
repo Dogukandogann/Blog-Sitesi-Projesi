@@ -34,7 +34,7 @@
                                 Kategori Adı
                             </th>
                             <th style="width: 20%">
-                                Son Blog
+                                Kategori Açıklaması
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Durum
@@ -58,16 +58,12 @@
                                 <td>@item.CategoryId</td>
                                 <td>@item.Name</td>
                                 <td>
+                                  
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar.png">
+                                           @item.CategoryDescription
                                         </li>
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar2.png">
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar3.png">
-                                        </li>
+
                                     </ul>
                                 </td>
                                 <td class="project-state">
