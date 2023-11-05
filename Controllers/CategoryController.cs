@@ -1,5 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,7 @@ namespace BlogProjesi.Controllers
 {
     public class CategoryController : Controller
     {
-        CategoryManager cm = new CategoryManager();
+        CategoryManager cm = new CategoryManager(new EFCategoryDAL());
         public ActionResult Index()
         {
             var categoryValues = cm.GetAll();
@@ -34,8 +37,22 @@ namespace BlogProjesi.Controllers
         [HttpPost]
         public ActionResult AdminCategoryAdd(Category p)
         {
-            cm.CategoryAddBl(p);
-            return RedirectToAction("AdminCategoryList");
+            CategoryValidator cv = new CategoryValidator();
+            ValidationResult results = cv.Validate(p);
+            if (results.IsValid)
+            {
+                cm.CategoryAddBl(p);
+                return RedirectToAction("AdminCategoryList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+            
         }
         public ActionResult CategoryEdit(int id)
         {
