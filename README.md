@@ -11,5 +11,5 @@
   <li>Entity Framework</li>
 </ul>
 <h2>Images</h2>
-![Ekran görüntüsü 2023-11-05 194003](https://github.com/Dogukandogann/Blog-Sitesi-Projesi/assets/134203440/8ee19118-18df-444a-ba43-63c39ba980d0)
+!(https://github.com/Dogukandogann/Blog-Sitesi-Projesi/assets/134203440/8ee19118-18df-444a-ba43-63c39ba980d0)
 
